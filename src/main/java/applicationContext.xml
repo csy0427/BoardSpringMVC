@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
+        xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util">
+
+    <!--context:component-scan base-package="java">
+       <context:exclude-filter expression="org.springframework.stereotype.com.Controller" type="annotation"/>
+    </context:component-scan>-->
+
+<!--    <tx:annotation-driven/>-->
+    <!--<context:component-scan base-package="com" />-->
+
+    <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+        <property name="driverClass" value="org.postgresql.Driver" />
+        <property name="url" value="jdbc:postgresql://localhost:5432/postgres" />
+        <property name="username" value="postgres" />
+        <property name="password" value="glqnf945" />
+    </bean>
+
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    &lt;!&ndash; 아래부분은 매핑할 xml파일이 있는 패키지경로를 설정한다. &ndash;&gt;
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="configLocation" value="classpath:/com/Mybatis/mybatis-config.xml"/>
+    </bean>
+
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>-->
+
+    <!--
+    굳이 bean으로 등록해주지 않아도 annotation으로 할 수 있음.
+   <bean id="memberService" class="com.spring.MemberServiceImpl">
+        <property name="memberDao" ref="memberDao"></property>
+    </bean>
+
+    <bean id="memberDao" class="com.spring.MemberDaoMybatis">
+            <property name="sqlSession" ref="sqlSession"></property>
+    </bean>
+    -->
+</beans>

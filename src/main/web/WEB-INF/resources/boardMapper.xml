@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="board">
+
+        <delete id="delete" parameterType="String">
+        delete from board where boardnumber= #boardnumber#
+        </delete>
+
+        <insert id="add" parameterType="com.Domain.Board">
+        insert into board (title as title, content as content, views as views, boardnumber as boardnumber, id as id) values(#{title}, #{content}, #{views}, #{boardnumber}, #{id})
+        </insert>
+
+        <update id="update" parameterType="com.Domain.Board">
+        update board set title as title = #title#,
+        content as content= #content#
+        where boardnumber = #boardnumber#
+        </update>
+
+        <select id="get" parameterType="String" resultType="com.Domain.Board">
+        select * from board where boardnumber = #boardnumber#
+        </select>
+
+        <select id="list" resultType="com.Domain.Board">
+        select * from board order by boardnumber
+        </select>
+
+        <update id="increase" parameterType="com.Domain.Board">
+                update board set views = #views# WHERE boardnumber=#boardnumber#
+        </update>
+
+        <select id="count" resultType="int">
+                select COUNT(*) from board
+        </select>
+
+</mapper>
