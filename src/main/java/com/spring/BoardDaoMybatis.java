@@ -1,56 +1,69 @@
 package com.spring;
 
 import com.Domain.Board;
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
+
 public class BoardDaoMybatis implements BoardDao {
 
     @Autowired
-    private SqlSessionTemplate sqlSession;
+  //  private SqlSessionTemplate sqlSession;
 
     public List<Board> list() {
         System.out.println("list dao");
-        List<Board> tmpList=sqlSession.selectList("list");
-        System.out.println(tmpList.get(0).getTitle()+"...................");
-        return tmpList;
+       // List<Board> tmpList=sqlSession.selectList("list");
+        //return tmpList;
+        return null;
     }
 
     public void add(Board board) {
         System.out.println("add dao");
-        sqlSession.selectOne("add",board);
+        //sqlSession.selectOne("add",board);
     }
 
     public void delete(String boardNumber) {
         System.out.println("delete dao");
-        sqlSession.selectOne("add",boardNumber);
+       // sqlSession.selectOne("delete",boardNumber);
+        updateBoardnumberWhenDelete(boardNumber);
     }
 
     public void update(Board board) {
         System.out.println("udpate dao");
-        sqlSession.selectOne("update",board);
+        //sqlSession.selectOne("update",board);
     }
 
-    public List<String> get(String boardNumber) {
+    public Board get(String boardnumber) {
         System.out.println("get dao");
-        List<String> post=sqlSession.selectOne("get",boardNumber);
-        return post;
+      //  Board post=(Board)sqlSession.selectOne("get",boardnumber);
+        increaseViews(boardnumber);
+        //return post;
+        return null;
     }
 
-    public void increaseViews(String boardNumber) {
+    public void increaseViews(String boardnumber) {
         System.out.println("increaseViews dao");
+      //  int views=Integer.parseInt((String) sqlSession.selectOne("getViews",boardnumber))+1;
         Board board=new Board();
-        sqlSession.selectOne("increase",board);
+        board.setBoardnumber(boardnumber);
+        //board.setViews(String.valueOf(views));
+        //sqlSession.selectOne("increase",board);
     }
 
     public int numberOfPost(){
         System.out.println("numberOfPost dao");
-        int number=sqlSession.selectOne("count");
-        System.out.println(number);
-        return number;
+       // int number=sqlSession.selectOne("count");
+        return 0;
+    }
+    public void updateBoardnumberWhenDelete(String boardnumber){
+        int boardnum=Integer.parseInt(boardnumber);
+        int totalnum=numberOfPost();
+        Board board=new Board();
+        for(int i=boardnum+1;i<=totalnum;i++){
+            board.setBoardnumber(String.valueOf(i));
+            board.setViews(String.valueOf(i-1));
+           // sqlSession.selectOne("updateBoardnumber",board);
+         }
     }
 }

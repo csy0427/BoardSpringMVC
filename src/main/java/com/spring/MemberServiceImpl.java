@@ -2,18 +2,14 @@ package com.spring;
 
 import com.Domain.Member;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpSession;
 
-@Service
-@Transactional
 public class MemberServiceImpl implements MemberService {
 
     @Autowired
     MemberDao dao;
-    private MemberDaoMybatis memberDao;
+   //private MemberDaoMybatis memberDao;
 
     public boolean loginCheck(HttpSession session, Member vo) {
         System.out.println("loginCheck service");
@@ -24,10 +20,11 @@ public class MemberServiceImpl implements MemberService {
             session.setAttribute("password",vo2.getPassword());
         }
         return result;
+     // return false;
     }
 
-    public Member viewMember(Member member) {
-        return dao.viewMember(member);
+    public Member viewMember(Member member) {//return dao.viewMember(member);
+        return null;
     }
 
     public void logout(HttpSession session) {
@@ -35,10 +32,11 @@ public class MemberServiceImpl implements MemberService {
     }
 
     public void setMemberDao(MemberDaoMybatis memberDao) {
-        this.memberDao = memberDao;
+        //this.memberDao = memberDao;
     }
 
     public MemberDaoMybatis getMemberDao() {
-        return memberDao;
+        //return memberDao;
+        return null;
     }
 }

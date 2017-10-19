@@ -12,8 +12,8 @@
     </database>
     <schema id="4" parent="2" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2017-09-07.17:10:21.118</IntrospectionTimestamp>
-      <IntrospectionStateNumber>645</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2017-10-19.10:48:10.540</IntrospectionTimestamp>
+      <IntrospectionStateNumber>992</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -40,67 +40,103 @@
       <ObjectId>16405</ObjectId>
       <StateNumber>639</StateNumber>
     </table>
-    <column id="12" parent="10" name="title">
+    <table id="12" parent="4" name="photo">
+      <ObjectId>16438</ObjectId>
+      <StateNumber>991</StateNumber>
+    </table>
+    <column id="13" parent="10" name="title">
       <Position>1</Position>
       <DataType>varchar(30)|0</DataType>
       <StateNumber>564</StateNumber>
     </column>
-    <column id="13" parent="10" name="content">
+    <column id="14" parent="10" name="content">
       <Position>2</Position>
       <DataType>varchar(100)|0</DataType>
       <StateNumber>565</StateNumber>
     </column>
-    <column id="14" parent="10" name="views">
+    <column id="15" parent="10" name="views">
       <Position>3</Position>
       <DataType>varchar(100)|0</DataType>
       <StateNumber>569</StateNumber>
     </column>
-    <column id="15" parent="10" name="boardnumber">
+    <column id="16" parent="10" name="boardnumber">
       <Position>4</Position>
       <DataType>varchar(100)|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>570</StateNumber>
     </column>
-    <column id="16" parent="10" name="id">
+    <column id="17" parent="10" name="id">
       <Position>5</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>645</StateNumber>
     </column>
-    <index id="17" parent="10" name="board_boardnumber_pk">
+    <index id="18" parent="10" name="board_boardnumber_pk">
       <ObjectId>16428</ObjectId>
       <ColNames>boardnumber</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="18" parent="10" name="board_boardnumber_pk">
+    <key id="19" parent="10" name="board_boardnumber_pk">
       <ObjectId>16429</ObjectId>
       <ColNames>boardnumber</ColNames>
       <UnderlyingIndexName>board_boardnumber_pk</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="19" parent="11" name="id">
+    <column id="20" parent="11" name="id">
       <Position>1</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>559</StateNumber>
     </column>
-    <column id="20" parent="11" name="password">
+    <column id="21" parent="11" name="password">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>571</StateNumber>
     </column>
-    <column id="21" parent="11" name="name">
+    <column id="22" parent="11" name="name">
       <Position>3</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>639</StateNumber>
     </column>
-    <index id="22" parent="11" name="member_id_pk">
+    <index id="23" parent="11" name="member_id_pk">
       <ObjectId>16413</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="23" parent="11" name="member_id_pk">
+    <key id="24" parent="11" name="member_id_pk">
       <ObjectId>16414</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>member_id_pk</UnderlyingIndexName>
+    </key>
+    <column id="25" parent="12" name="file">
+      <Position>7</Position>
+      <DataType>bytea|0</DataType>
+      <StateNumber>962</StateNumber>
+    </column>
+    <column id="26" parent="12" name="filename">
+      <Position>9</Position>
+      <DataType>varchar(40)|0</DataType>
+      <StateNumber>964</StateNumber>
+    </column>
+    <column id="27" parent="12" name="id">
+      <Position>10</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>967</StateNumber>
+    </column>
+    <column id="28" parent="12" name="path">
+      <Position>11</Position>
+      <DataType>varchar(120)|0</DataType>
+      <StateNumber>991</StateNumber>
+    </column>
+    <index id="29" parent="12" name="photo_id_pk">
+      <ObjectId>16446</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="30" parent="12" name="photo_id_pk">
+      <ObjectId>16447</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>photo_id_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
     </key>
   </database-model>
 </dataSource>

@@ -13,7 +13,7 @@ public interface BoardDao {
 
     void update(Board board);
 
-    List<String> get(String boardNumber);
+    Board get(String boardNumber);
 
     void increaseViews(String boardNumber);
 

@@ -1,11 +1,26 @@
 package com.Domain;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="board")
 public class Board {
 
+    @Id
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="boardnumber")
     private String boardnumber;
+
+    @Column(name="title", nullable=false)
     private String title;
+
+    @Column(name="id", nullable=false)
     private String id;
+
+    @Column(name="content", nullable=false)
     private String content;
+
+    @Column(name="views", nullable=false)
     private String views;
 
     public String getBoardnumber() {

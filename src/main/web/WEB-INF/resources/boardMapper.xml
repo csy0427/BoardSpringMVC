@@ -6,21 +6,21 @@
 <mapper namespace="board">
 
         <delete id="delete" parameterType="String">
-        delete from board where boardnumber= #boardnumber#
+        delete from board where boardnumber= #{boardnumber}
         </delete>
 
         <insert id="add" parameterType="com.Domain.Board">
-        insert into board (title as title, content as content, views as views, boardnumber as boardnumber, id as id) values(#{title}, #{content}, #{views}, #{boardnumber}, #{id})
-        </insert>
+        insert into board (title, content, views, boardnumber, id) values(#{title}, #{content}, #{views}, #{boardnumber}, #{id})
+</insert>
 
         <update id="update" parameterType="com.Domain.Board">
-        update board set title as title = #title#,
-        content as content= #content#
-        where boardnumber = #boardnumber#
+        update board set title  = #{title},
+        content = #{content}
+        where boardnumber = #{boardnumber}
         </update>
 
         <select id="get" parameterType="String" resultType="com.Domain.Board">
-        select * from board where boardnumber = #boardnumber#
+        select * from board where boardnumber = #{boardnumber}
         </select>
 
         <select id="list" resultType="com.Domain.Board">
@@ -28,11 +28,25 @@
         </select>
 
         <update id="increase" parameterType="com.Domain.Board">
-                update board set views = #views# WHERE boardnumber=#boardnumber#
+                update board set views = #{views}
+                WHERE boardnumber = #{boardnumber}
         </update>
+
+        <select id="getViews" parameterType="String" resultType="String">
+                select views FROM board
+                WHERE boardnumber = #{boardnumber}
+        </select>
 
         <select id="count" resultType="int">
                 select COUNT(*) from board
         </select>
 
+        <update id= "updateBoardnumber" parameterType="com.Domain.Board">
+                update board set boardnumber = #{views}
+                WHERE boardnumber = #{boardnumber}
+        </update>
+
+        <insert id= "saveFile" parameterType="map">
+                INSERT INTO photo (file, filename, id, path) VALUES (#{file},#{fileName},#{id},#{path})
+        </insert>
 </mapper>

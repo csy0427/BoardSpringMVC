@@ -2,13 +2,11 @@ package com.spring;
 
 import com.Domain.Board;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
-@Service
-@Transactional
+
 public class BoardServiceImpl implements BoardService{
 
     @Autowired
@@ -19,7 +17,7 @@ public class BoardServiceImpl implements BoardService{
         return boardDao.list();
     }
 
-    public List<String> get(String boardNumber) {
+    public Board get(String boardNumber) {
         System.out.println("BoardService get");
         return boardDao.get(boardNumber);
     }
@@ -38,13 +36,15 @@ public class BoardServiceImpl implements BoardService{
         System.out.println("BoardService add");
         board.setViews("0");
         board.setBoardnumber(String.valueOf(numberOfPost()));
-        System.out.println(board.getTitle()+board.getContent()+"***************");
         boardDao.add(board);
     }
-    public void increaseViews(String boardNumber){
-        System.out.println("BoardService increaseCount");
-        Board board=new Board();
-        boardDao.increaseViews(boardNumber);
+
+    public void increaseViews(Board board) {
+
+    }
+
+    public void save(MultipartFile file) {
+
     }
 
     public int numberOfPost(){

@@ -1,8 +1,20 @@
 package com.Domain;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="member")
 public class Member {
+
+    @Id
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id")
     private String id;
+
+    @Column(name="password")
     private String password;
+
+    @Column(name="name")
     private String name;
 
     public String getId() {
@@ -28,4 +40,5 @@ public class Member {
     public void setName(String name) {
         this.name = name;
     }
+
 }
