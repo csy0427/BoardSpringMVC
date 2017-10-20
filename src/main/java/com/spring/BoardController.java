@@ -51,11 +51,19 @@ public class BoardController {
         modelAndView.setViewName("read");
         httpSession.setAttribute("post",tmpPost);
         modelAndView.addObject("post",tmpPost);
+        modelAndView.addObject("file",httpSession.getAttribute("file"));
         return modelAndView;
     }
 
+    @RequestMapping(value = "updateForm.do")
+    public String updateForm(@ModelAttribute Board board) throws Exception{
+        return "/board/updateForm";
+    }
+
     @RequestMapping(value = "update.do",method = RequestMethod.POST)
-    public String update(@ModelAttribute Board board) throws Exception{
+    public String update(@ModelAttribute Board board, HttpSession session) throws Exception{
+        System.out.println("update method called**********");
+        System.out.println(board.toString());
         boardService.update(board);
         return "redirect:list.do";
     }
@@ -90,8 +98,8 @@ public class BoardController {
     }
 
     @RequestMapping(value = "upload.do")
-    public String fileUp(MultipartHttpServletRequest multi) {
-
+    public String fileUp(MultipartHttpServletRequest multi,HttpSession httpSession) {
+        System.out.println("fileUp method called");
         // 저장 경로 설정
         String root = multi.getSession().getServletContext().getRealPath("/");
         String path = root+"resources/file/";
@@ -120,7 +128,7 @@ public class BoardController {
                 e.printStackTrace();
             }
         }
-
+        httpSession.setAttribute("file",multi);
         System.out.println("id : " + multi.getParameter("id"));
         System.out.println("pw : " + multi.getParameter("pw"));
 

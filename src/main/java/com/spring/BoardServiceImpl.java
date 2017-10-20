@@ -4,7 +4,9 @@ import com.Domain.Board;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Map;
 
 
 public class BoardServiceImpl implements BoardService{
@@ -40,6 +42,10 @@ public class BoardServiceImpl implements BoardService{
     }
 
     public void increaseViews(Board board) {
+
+    }
+
+    public void saveFile(Map<String, Object> map, HttpServletRequest request) {
 
     }
 

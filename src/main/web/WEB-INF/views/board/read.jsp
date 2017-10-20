@@ -22,11 +22,12 @@
     </div>
     <div>
         내용
-        <form name="content" id="content" rows="4" cols="80" >${post.content}</form>
+        <form name="content" id="content" rows="4" cols="80" value="${post.content}"/>
     </div>
     <div>
         아이디
         ${id}
+        <input type="hidden" name="id" value="${post.id}">
     </div>
     <div>
         첨부파일
@@ -35,8 +36,9 @@
         </c:if>
     </div>
     <div style="width:650px; text-align: center;">
+        <input type="hidden" name="views" value="${post.views}">
         <input type="hidden" name="boardnumber" value="${post.boardnumber}">
-        <button type="submit">수정</button>
+        <input type="submit" value="수정">
         <input type="button" value="삭제" onclick="location.href='./delete.do?boardnumber=${post.boardnumber}'">
     </div>
 </form>

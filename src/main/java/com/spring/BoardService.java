@@ -2,9 +2,10 @@ package com.spring;
 
 import com.Domain.Board;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Map;
 
 public interface BoardService {
     @Autowired
@@ -14,5 +15,5 @@ public interface BoardService {
     void delete(String boardNumber);
     void add(Board board);
     void increaseViews(Board board);
-    void save(MultipartFile file);
+    void saveFile(Map<String, Object> map, HttpServletRequest request);
 }

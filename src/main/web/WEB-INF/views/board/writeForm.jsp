@@ -38,7 +38,7 @@
 </head>
 <body>
 <h2>게시글 작성</h2>
-<form name="fileForm" method="post" onclick="fileSubmit();" enctype="multipart/form-data">
+<form name="fileForm" method="post" action="/board/add.do" onclick="fileSubmit();" enctype="multipart/form-data">
     <div>
         제목
         <input name="title" id="title" size="80" placeholder="제목을 입력해주세요">
@@ -49,7 +49,6 @@
     </div>
     <div>
         아이디
-        <!--<input name="id" id="id" placeholder="아이디를 입력해주세요">-->
         ${id}
     </div>
     <div style="width:650px; text-align: center;">

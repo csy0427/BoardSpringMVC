@@ -67,4 +67,5 @@ public class Board {
     public String toString(){
         return "Board [boardnumber=" + getBoardnumber() + ", title=" + getTitle() +", content="+getContent() + ", id= "+ getId()+"]";
     }
+
 }
