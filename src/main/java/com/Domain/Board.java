@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Board {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     @Column(name="boardnumber")
     private String boardnumber;
 
@@ -22,6 +22,12 @@ public class Board {
 
     @Column(name="views", nullable=false)
     private String views;
+
+
+    /*@OneToMany(mappedBy="boardnumber")
+    @Column
+    private Collection<File> files;
+*/
 
     public String getBoardnumber() {
         return boardnumber;

@@ -11,14 +11,27 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.iframe-transport.js"></script>
     <script type="text/javascript" src="../js/jquery.fileupload.js"></script>
+
+    <!-- <script type="text/javascript" src="../js/common.js"></script>
+    <title>게시글 작성</title>
+    <style>
+        /* 첨부파일을 드래그할 영역의 스타일 */
+        .fileDrop {
+            width: 600px;
+            height: 70px;
+            border: 2px dotted gray;
+            background-color: gray;
+        }
+    </style>
+
     <script>
         function fileSubmit() {
             var formData = new FormData($("#fileForm")[0]);
             $.ajax({
                 type : 'post',
-                url : 'upload',
+                url : '/board/add.do',
                 data : formData,
                 processData : false,
                 contentType : false,
@@ -33,12 +46,11 @@
             });
         }
     </script>
-
-    <title>게시글 작성</title>
 </head>
+-->
 <body>
 <h2>게시글 작성</h2>
-<form name="fileForm" method="post" action="/board/add.do" onclick="fileSubmit();" enctype="multipart/form-data">
+<form name="add" method="post" action="/board/add.do" enctype="multipart/form-data">
     <div>
         제목
         <input name="title" id="title" size="80" placeholder="제목을 입력해주세요">
@@ -55,10 +67,10 @@
         <input type="submit" value="제출">
         <button type="reset">취소</button>
     </div>
-    <div>
-        <input id="imageUpload" type="file" name="file"  multiple="">
-        <br>
+    <input id="imageUpload" type="file" name="file"  multiple="">
+    <br>
     </div>
 </form>
+
 
 </body>

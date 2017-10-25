@@ -46,7 +46,4 @@
                 WHERE boardnumber = #{boardnumber}
         </update>
 
-        <insert id= "saveFile" parameterType="map">
-                INSERT INTO photo (file, filename, id, path) VALUES (#{file},#{fileName},#{id},#{path})
-        </insert>
 </mapper>
